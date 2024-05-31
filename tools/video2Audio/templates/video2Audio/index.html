@@ -1,7 +1,18 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+{% block content %}
 <h1>video tools</h1>
-<form method="post" action="{%url 'video2Audio'%}">
-  {% csrf_token %} {{form.as_p}}
+
+{% if submitted %}
+<div class="alert alert-success" role="alert">
+  Your video has been successfully submitted!
+</div>
+{% endif %}
+
+<form method="post" action="{% url 'video2Audio' %}">
+  {% csrf_token %} 
+  {{ form.as_p }}
   <button type="submit">Submit</button>
 </form>
+
 {% endblock content %}

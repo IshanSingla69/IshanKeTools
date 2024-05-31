@@ -1,6 +1,7 @@
 from django import forms
-from django.forms import ModelForm
+from .models import Video  # assuming you have a Video model
 
-# create a form
-class VideoForm(forms.Form):
-    video = forms.FileField(label='Select a video file')
+class VideoForm(forms.ModelForm):
+    class Meta:
+        model = Video
+        fields = ['video_file']  # replace with your actual field name

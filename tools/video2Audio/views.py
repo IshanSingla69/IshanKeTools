@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import VideoForm
+
 def index(request):
     video = VideoForm()
     submitted = False
@@ -14,4 +15,4 @@ def index(request):
         video = VideoForm()
         if 'submitted' in request.GET:
             submitted = True
-    return render(request, 'video2Audio/index.html', {'form': video}, {'submitted': submitted})
+    return render(request, 'video2Audio/index.html', {'form': video, 'submitted': submitted})
